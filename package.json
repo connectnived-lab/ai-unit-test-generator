@@ -1,0 +1,28 @@
+{
+  "name": "ai-unit-test-generator",
+  "version": "1.0.0",
+  "description": "Generates Node unit tests from exported JavaScript functions: sampled inputs, recorded results, error paths. Offline demo mode plus an optional live model.",
+  "private": false,
+  "type": "module",
+  "author": "Nived NS",
+  "license": "MIT",
+  "keywords": [
+    "testing",
+    "unit-tests",
+    "node-test",
+    "test-generation",
+    "javascript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/connectnived-lab/ai-unit-test-generator.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "test": "node --test tests/unit/*.test.js",
+    "e2e": "python3 tests/e2e/smoke.py"
+  }
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<title>AI Unit Test Generator · Nived NS</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="src/app.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo" aria-hidden="true">UT</div>
+    <div><h1>AI Unit Test Generator</h1><p class="tag">Node unit tests from your exported functions: sampled inputs, recorded results, error paths.</p></div></div>
+  <div class="topbar-right"><span id="mode-badge" class="badge">Demo mode (offline)</span>
+    <button id="open-settings" class="btn ghost small" type="button">Settings</button></div>
+</header>
+<main>
+<section class="card">
+  <div class="row between">
+    <h2>Your module</h2>
+    <button id="sample-btn" class="btn ghost small" type="button">Load sample module</button>
+  </div>
+  <div class="grid-2 tight">
+    <div>
+      <label for="file-input">File name</label>
+      <input id="file-input" type="text" value="math.js" autocomplete="off">
+    </div>
+    <div class="hint-col">
+      <p class="hint">Only exported functions get tests. Async functions and private helpers are listed as skipped, with the reason.</p>
+    </div>
+  </div>
+  <label for="src-input">JavaScript module</label>
+  <textarea id="src-input" class="code" spellcheck="false" aria-label="JavaScript module source"></textarea>
+  <div class="row end actions">
+    <button id="run-btn" class="btn" type="button">Generate tests</button>
+  </div>
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+</section>
+<section id="result" class="card" hidden aria-live="polite">
+  <div class="row between">
+    <h2>Generated test file</h2>
+    <button id="download-btn" class="btn small ghost" type="button" hidden>Download .test.js</button>
+  </div>
+  <p id="summary" class="summary"></p>
+  <pre id="output" class="output code-out"></pre>
+</section>
+</main>
+<footer class="foot">Built by Nived NS</footer>
+<dialog id="settings-dialog" aria-labelledby="settings-title">
+  <div class="dialog-body">
+    <h2 id="settings-title">Live mode settings</h2>
+    <p class="hint">Any OpenAI-compatible chat-completions endpoint. Stored only in this browser (localStorage); the key is sent only to the endpoint you set here.</p>
+    <label for="set-base">API base URL</label>
+    <input id="set-base" type="url" placeholder="https://your-host.example/v1" autocomplete="off">
+    <label for="set-key">API key</label>
+    <input id="set-key" type="password" autocomplete="off">
+    <label for="set-model">Model</label>
+    <input id="set-model" type="text" placeholder="model-name" autocomplete="off">
+    <label class="check"><input id="set-live" type="checkbox"> Use the live model in this app</label>
+    <p id="set-status" class="status" role="status"></p>
+    <div class="row end">
+      <button id="set-clear" class="btn ghost small" type="button">Forget key</button>
+      <button id="set-cancel" class="btn ghost small" type="button">Cancel</button>
+      <button id="set-save" class="btn small" type="button">Save</button>
+    </div>
+  </div>
+</dialog>
+<script type="module" src="src/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "tests_passed": 35,
+  "e2e_passed": true,
+  "e2e_checks": 18,
+  "viewports": [
+    "390x844",
+    "1440x900"
+  ],
+  "verified": [
+    "Unit tests (node --test): 35 passing, including a round-trip test that runs the generated file with node --test against the sample module (23 generated tests pass).",
+    "End-to-end (Playwright, Chromium): 18 checks passing at 390x844 and 1440x900, covering demo generation, the skipped-function summary, download control, and live mode against a mocked endpoint.",
+    "Screenshots taken from the running app and reviewed."
+  ],
+  "unverified": [
+    "Live-mode test quality against a real model was not tested (mocked endpoint only).",
+    "Generated expectations are characterisation values; they confirm current behaviour, not correct behaviour."
+  ]
+}
